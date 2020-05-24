@@ -1,0 +1,10 @@
+lex.yy.c
+minic
+minic.tab.c
+minic.tab.h
+test_one.o
+test_one
+out.s
+out.o
+out
+
