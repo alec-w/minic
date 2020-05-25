@@ -40,12 +40,6 @@ void yyerror(const char *str)
     fprintf(stderr,"error: %s\n",str);
 }
 
-/* Stop at end of file. */
-int yywrap(void)
-{
-    return 1;
-}
-
 void write_skeleton(void)
 {
     FILE *out = fopen("out.asm", "wb");

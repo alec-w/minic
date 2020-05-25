@@ -7,7 +7,7 @@ minic.tab.c minic.tab.h: minic.y
 	bison -d minic.y
 
 bin/minic: lex.yy.c minic.tab.c
-	gcc -Wall lex.yy.c minic.tab.c -o $@ -lfl
+	gcc -Wall lex.yy.c minic.tab.c -o $@
 
 test: run_tests.c bin/minic
 	$(CC) $(CFLAGS) $< -o bin/test
