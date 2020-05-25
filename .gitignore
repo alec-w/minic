@@ -1,7 +1,8 @@
 lex.yy.c
-minic
+bin/minic
 minic.tab.c
 minic.tab.h
 out.asm
 out.o
 out
+bin/test
