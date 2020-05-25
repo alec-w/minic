@@ -14,6 +14,8 @@ test: run_tests.c bin/minic
 	bin/test
 
 clean:
-	rm -f lex.yy.c minic.tab.c minic.tab.h bin/minic bin/test
+	rm -f lex.yy.c minic.tab.c minic.tab.h
+	rm -f bin/minic bin/test
+	rm -f out out.asm out.o
 
 .PHONY: all clean test
