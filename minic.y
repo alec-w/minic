@@ -48,16 +48,16 @@ int yywrap(void)
 
 void write_skeleton(void)
 {
-    FILE *out = fopen("out.s", "wb");
+    FILE *out = fopen("out.asm", "wb");
 
-    fprintf(out, ".text\n");
-    fprintf(out, "    .global _start\n\n");
+    fprintf(out, "section .text\n");
+    fprintf(out, "    global _start\n\n");
     fprintf(out, "_start:\n");
 
-    fprintf(out, "    movl    $%d, %%ebx\n", return_code);
+    fprintf(out, "    mov  ebx,%d\n", return_code);
 
-    fprintf(out, "    movl    $1, %%eax\n");
-    fprintf(out, "    int     $0x80\n");
+    fprintf(out, "    mov  eax,1\n");
+    fprintf(out, "    int  0x80\n");
 
     fclose(out);
 }
@@ -71,10 +71,10 @@ int main(int argc, char *argv[])
     yyparse();
 
     write_skeleton();
-    printf("Written out.s.\n");
+    printf("Written out.asm.\n");
     printf("Build it with:\n");
-    printf("    $ as out.s -o out.o --64\n");
-    printf("    $ ld -s -o out out.o\n");
+    printf("    $ nasm -f elf out.asm\n");
+    printf("    $ ld -m elf_i386 -s -o out out.o\n");
 
     return 0;
 }
